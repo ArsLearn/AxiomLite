@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}{% endblock head %}
+    <link rel="stylesheet" href="{% static '/styles/website/main.css' %}">
+    {% block style %}{% endblock style %}
+    <link rel="shortcut icon" href="{% static '/images/type/ico/A-1.ico' %}" type="image/x-icon">
+    {% block icon %}{% endblock icon %}
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    
+    {% block header %}{% endblock header %}
+    {% include "include/main-header.html" %}
+    {% block content %}{% endblock content %}
+    {% block footer %}{% endblock footer %}
+    {% include "include/main-footer.html" %}
+    {% block script %}{% endblock script %}
+</body>
+</html>

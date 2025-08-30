@@ -1,0 +1,51 @@
+{% load static %}
+
+{% block head %}
+
+{% endblock head %}
+
+
+{% block style %}
+<link rel="stylesheet" href="{% static '/styles/website/main-header.css' %}">
+{% endblock style %}
+
+
+
+
+{% block header %}
+<header class="header" id="header">
+    <nav class="header-navigation" id="header-navigation">
+        <div class="header-navigation-image-box">
+            <img src="{% static 'images/type/webp/AxiomLite.webp' %}" alt="AxiomLite" class="header-navigation-image" id="header-navigation-image">
+        </div>
+        <div class="header-navigation-list">
+            <div class="header-navigation-item">
+                <a href="about/" class="header-navigation-link">About</a>
+            </div>
+            
+            <div class="header-navigation-item">
+                <a href="support/" class="header-navigation-link">Support</a>
+            </div>
+
+            <div class="header-navigation-item">
+                <a href="login/" class="header-navigation-link">Login</a>
+            </div>
+
+            <div class="header-navigation-item">
+                <a href="weblog/" class="header-navigation-link">Weblog</a>
+            </div>
+            <div class="header-navigation-item">
+                <a href="shop/" class="header-navigation-link">Shop</a>
+            </div>
+            <div class="header-navigation-item">
+                <a href="" class="header-navigation-link">Owner</a>
+            </div>
+        </div>
+
+    </nav>
+</header>
+<b id="test"></b>
+{% endblock header %}
+{% block script %}
+<script src="{% static 'scripts/website/main-header.js' %}"></script>
+{% endblock script %}

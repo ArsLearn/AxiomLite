@@ -1,0 +1,40 @@
+{% extends "parent/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="post" id="post-{{ post.id }}">
+    <h2 class="post-title">{{ post.title }}</h2>
+    <p class="post-text">{{ post.text }}</p>
+    <div class="post-author-box">
+        <b class="post-author-text">Author</b>
+        <a href="user/{{ post.author.username }}" class="post-author">@{{ post.author.username }}</a>
+    </div>
+    <p class="post-published">{{ post.published }}</p>
+    <p class="post-mode">{{ post.mode }}</p>
+    <b class="like-count" id="like-count">{{ post.likes.count }}</b>
+    <div class="post-tab-box">
+        <b class="post-tag-title">Tag</b>
+        {% for tag in post.tag.all %}
+        <b class="post-tag">{{ tag }}</b>
+        {% endfor %}
+    </div>
+    <button class="like-button" id="like-button" data-csrf-token="{{ csrf_token }}" onclick="like()">
+        Like
+    </button>
+</div>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Comment</button>
+</form>
+
+<h2>Comments</h2>
+{% for comment in comments %}
+<div>
+    {{ comment.text }}
+</div>
+{% endfor %}
+{% endblock content %}
+{% block script %}
+<script src="{% static 'scripts/weblog/post/detail.js' %}"></script>
+{% endblock script %}
