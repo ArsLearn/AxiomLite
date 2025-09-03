@@ -1,5 +1,8 @@
 from django.db import models as m
-from django.conf import settings as s
+from django.contrib.auth import get_user_model
+
+
+User = get_user_model()
 
 
 class Ticket(m.Model):
@@ -30,7 +33,7 @@ class Ticket(m.Model):
     slug = m.CharField(max_length = 128)
     text = m.TextField(max_length = 1024)
     type = m.CharField(max_length = 64, choices = TYPE_CHOICES)
-    owner = m.ForeignKey(s.AUTH_USER_MODEL, related_name = "ticket", on_delete = m.CASCADE)
+    owner = m.ForeignKey(User, related_name = "ticket", on_delete = m.CASCADE)
     answer = m.TextField(max_length = 1024)
     created = m.DateTimeField(auto_now_add = True)
     answered = m.DateTimeField(auto_now = True)

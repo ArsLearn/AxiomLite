@@ -20,25 +20,29 @@
         </div>
         <div class="header-navigation-list">
             <div class="header-navigation-item">
-                <a href="about/" class="header-navigation-link">About</a>
+                <a href="/about/" class="header-navigation-link">About</a>
             </div>
             
             <div class="header-navigation-item">
-                <a href="support/" class="header-navigation-link">Support</a>
+                <a href="/support/" class="header-navigation-link">Support</a>
             </div>
-
+            {% if request.user.is_authenticated %}
             <div class="header-navigation-item">
-                <a href="login/" class="header-navigation-link">Login</a>
+                <a href="/account/logout/" class="header-navigation-link">Logout</a>
             </div>
-
+            {% else %}
             <div class="header-navigation-item">
-                <a href="weblog/" class="header-navigation-link">Weblog</a>
+                <a href="/account/login/" class="header-navigation-link">Login</a>
+            </div>
+            {% endif %}
+            <div class="header-navigation-item">
+                <a href="/weblog/" class="header-navigation-link">Weblog</a>
             </div>
             <div class="header-navigation-item">
-                <a href="shop/" class="header-navigation-link">Shop</a>
+                <a href="/shop/" class="header-navigation-link">Shop</a>
             </div>
             <div class="header-navigation-item">
-                <a href="" class="header-navigation-link">Owner</a>
+                <a href="/courses/" class="header-navigation-link">Courses</a>
             </div>
         </div>
 
